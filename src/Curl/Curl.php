@@ -801,6 +801,8 @@ class Curl
 
         $raw_headers_count = count($raw_headers);
         for ($i = 1; $i < $raw_headers_count; $i++) {
+            if(substr($raw_headers[$i],0,5)=='<?xml')
+                continue;
             list($key, $value) = explode(':', $raw_headers[$i], 2);
             $key = trim($key);
             $value = trim($value);
